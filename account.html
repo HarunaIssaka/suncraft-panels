@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account - SunCraft Panels</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>SunCraft Panels</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+      <span id="userNav"></span>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <h2>My Account</h2>
+    <div id="account-info">
+      <p><strong>Name:</strong> <span id="acc-name"></span></p>
+      <p><strong>Email:</strong> <span id="acc-email"></span></p>
+
+      <h3>Change Password</h3>
+      <form id="updateForm">
+        <label>New Password</label>
+        <input type="password" id="new-password" required />
+        <button type="submit">Update Password</button>
+      </form>
+      <button id="logoutBtn" style="background:red; margin-top:20px;">Logout</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 SunCraft Panels</p>
+  </footer>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+    const username = localStorage.getItem("username");
+    const accName = document.getElementById("acc-name");
+    const accEmail = document.getElementById("acc-email");
+    const userNav = document.getElementById("userNav");
+
+    // Redirect if not logged in
+    if (!username || !user) {
+      alert("You must log in to view your account.");
+      window.location.href = "login.html";
+    } else {
+      accName.textContent = user.name;
+      accEmail.textContent = user.email;
+      userNav.innerHTML = `<a href="account.html">${user.name}</a>`;
+    }
+
+    // Update password
+    document.getElementById("updateForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const newPass = document.getElementById("new-password").value.trim();
+      if (newPass.length < 4) {
+        alert("Password must be at least 4 characters long.");
+        return;
+      }
+      user.password = newPass;
+      localStorage.setItem("user", JSON.stringify(user));
+      alert("Password updated successfully!");
+      document.getElementById("new-password").value = "";
+    });
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("username");
+      alert("You’ve been logged out.");
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

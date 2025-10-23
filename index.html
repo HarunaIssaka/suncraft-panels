@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SunCraft Panels | Powering Ghana with Solar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>SunCraft Panels</h1>
+    <nav>
+      <ul id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#" id="cartBtn">🛒 Cart</a></li>
+        <li><a href="login.html" id="loginBtn">Login</a></li>
+        <li><a href="signup.html" id="signupBtn">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h2>Power Ghana with Smart Solar Energy ☀️</h2>
+  </section>
+
+  <section id="products">
+    <h2>Our Solar Products</h2>
+    <div class="products" id="productList"></div>
+  </section>
+
+  <section id="about">
+    <h2>About SunCraft Panels</h2>
+    <p>
+      SunCraft Panels provides Ghana’s most advanced solar technology — from household rooftops to solar farms.
+      We offer affordable, durable, and AI-optimized panels to power a greener tomorrow.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><b>Phone:</b> +233 550 984 392 / +233 332 378 951</p>
+    <p><b>Email:</b> suncraftpanels@gmail.com</p>
+    <form>
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="email" placeholder="Your Email" required><br>
+      <textarea placeholder="Message" rows="4" required></textarea><br>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 SunCraft Panels | All Rights Reserved
+  </footer>
+
+  <div class="cart" id="cart">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+    <p><strong>Total:</strong> <span id="cartTotal">₵ 0</span></p>
+    <button class="btn checkout-btn" id="checkoutBtn">Checkout</button>
+    <button class="btn clear-btn" id="clearCartBtn">Clear Cart</button>
+  </div>
+
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <span class="close" id="closeCheckout">&times;</span>
+      <h3>MTN MoMo Payment</h3>
+      <p>Enter your MoMo number to complete your order.</p>
+      <input type="text" placeholder="MoMo Number" />
+      <button class="btn">Pay Now</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - SunCraft Panels</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>SunCraft Panels</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <h2>Login to Your Account</h2>
+    <form id="login-form">
+      <label>Email</label>
+      <input type="email" id="login-email" required />
+
+      <label>Password</label>
+      <input type="password" id="login-password" required />
+
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 SunCraft Panels</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("login-email").value.trim();
+      const password = document.getElementById("login-password").value.trim();
+
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      if (!storedUser) {
+        alert("No account found. Please sign up first.");
+        return;
+      }
+
+      if (email === storedUser.email && password === storedUser.password) {
+        localStorage.setItem("username", storedUser.name);
+        alert("Welcome back, " + storedUser.name + "!");
+        window.location.href = "index.html";
+      } else {
+        alert("Incorrect email or password.");
+      }
+    });
+  </script>
+</body>
+</html>
